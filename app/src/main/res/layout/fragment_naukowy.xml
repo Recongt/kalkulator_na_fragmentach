@@ -1,0 +1,308 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adam.kalkulator_na_fragmentach.Naukowy">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/napis"
+            android:textSize="50dp"
+
+            android:id="@+id/textView"
+            android:editable="false"
+            android:gravity="right" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:weightSum="1">
+
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bksp"
+                    android:id="@+id/bksp"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sin(x)"
+                    android:id="@+id/sin"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:id="@+id/button1"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:id="@+id/button4"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:id="@+id/button7"
+                    android:layout_weight="0.16"
+                    android:layout_gravity="top"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="="
+                    android:id="@+id/isequal"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                class="android.preference.PreferenceFragment">
+
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="sqrt"
+                    android:id="@+id/sqrt"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cos(x)"
+                    android:id="@+id/button12"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:id="@+id/button2"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:id="@+id/button5"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:id="@+id/button8"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/button0"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ln"
+                    android:id="@+id/ln"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="tan(x)"
+                    android:id="@+id/tan"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:id="@+id/button3"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6"
+                    android:id="@+id/button6"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9"
+                    android:id="@+id/button9"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="C"
+                    android:id="@+id/C"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="x^y"
+                    android:id="@+id/wykladnik"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="x^2"
+                    android:id="@+id/kwadrat"
+                    android:layout_weight="0.16"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:textSize="20dp"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:id="@+id/plus"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:id="@+id/minus"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:id="@+id/mnozenie"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:id="@+id/dzielenie"
+                    android:layout_weight="0.16"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
