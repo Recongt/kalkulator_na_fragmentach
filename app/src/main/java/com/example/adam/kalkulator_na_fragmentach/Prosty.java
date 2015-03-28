@@ -266,7 +266,7 @@ public class Prosty extends Fragment implements View.OnClickListener {
             display_text =Double.toString(wynik);
             temp=Double.toString(wynik);
             pierwsza_liczba = wynik;
-            
+
 
 
             toast_wypisz("equal 1");
