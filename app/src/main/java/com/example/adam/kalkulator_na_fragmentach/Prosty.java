@@ -127,7 +127,12 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void nine_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "9";
         display_text += "9";
         wyswietlacz.setText(display_text);
@@ -135,7 +140,12 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void eight_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "8";
         display_text += "8";
         wyswietlacz.setText(display_text);
@@ -143,14 +153,25 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void seven_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "7";
         display_text += "7";
         wyswietlacz.setText(display_text);
+
     }
 
     private void six_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "6";
         display_text += "6";
         wyswietlacz.setText(display_text);
@@ -158,7 +179,12 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void five_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "5";
         display_text += "5";
         wyswietlacz.setText(display_text);
@@ -179,7 +205,12 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void three_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "3";
         display_text += "3";
         wyswietlacz.setText(display_text);
@@ -187,7 +218,12 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void two_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "2";
         display_text += "2";
         wyswietlacz.setText(display_text);
@@ -195,7 +231,12 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void one_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "1";
         display_text += "1";
         wyswietlacz.setText(display_text);
@@ -203,7 +244,12 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void zero_wywolanie() {
-        czy_jest_juz_pierwsza = true;
+        if (czy_jest_juz_pierwsza == false) {
+            czy_jest_juz_pierwsza = true;
+            temp = "";
+            display_text = "";
+        }
+
         temp += "0";
         display_text += "0";
         wyswietlacz.setText(display_text);
@@ -223,7 +269,7 @@ public class Prosty extends Fragment implements View.OnClickListener {
             pierwsza_liczba = wynik;
             druga_liczba = 0;
             wyswietlacz.setText(display_text);
-            toast_wypisz("mnozenie 1");
+
         } else if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == false) {
             operacja = 3;
             pierwsza_liczba = Double.parseDouble(temp);
@@ -231,11 +277,11 @@ public class Prosty extends Fragment implements View.OnClickListener {
             display_text += "*";
             czy_jest_juz_operator = true;
             wyswietlacz.setText(display_text);
-            toast_wypisz("mnozenie 2");
+
 
         } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == true) {
             // lul niemozliwe
-            toast_wypisz("mnozenie 3");
+
         } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == false) {
             Toast.makeText(getActivity(), "Wprowadz pierwsza liczbe",
                     Toast.LENGTH_LONG).show();
@@ -245,15 +291,99 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void dzielenie_wywolanie() {
+        if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == true) {
+            // np 3*3* ma zamienic w 9*
+            druga_liczba = Double.parseDouble(temp);
+            temp = "";
+            wynik = operuj(4);
+            czy_jest_juz_operator = true;
+            czy_jest_juz_pierwsza = true;
+            display_text = Double.toString(wynik) + "/";
+            pierwsza_liczba = wynik;
+            druga_liczba = 0;
+            wyswietlacz.setText(display_text);
+
+        } else if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == false) {
+            operacja = 4;
+            pierwsza_liczba = Double.parseDouble(temp);
+            temp ="";
+            display_text += "/";
+            czy_jest_juz_operator = true;
+            wyswietlacz.setText(display_text);
+
+
+        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == true) {
+            // lul niemozliwe
+
+        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == false) {
+            Toast.makeText(getActivity(), "Wprowadz pierwsza liczbe",
+                    Toast.LENGTH_LONG).show();
+        }
 
     }
 
 
     private void minus_wywolanie() {
+        if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == true) {
+            // np 3*3* ma zamienic w 9*
+            druga_liczba = Double.parseDouble(temp);
+            temp = "";
+            wynik = operuj(2);
+            czy_jest_juz_operator = true;
+            czy_jest_juz_pierwsza = true;
+            display_text = Double.toString(wynik) + "-";
+            pierwsza_liczba = wynik;
+            druga_liczba = 0;
+            wyswietlacz.setText(display_text);
+
+        } else if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == false) {
+            operacja = 2;
+            pierwsza_liczba = Double.parseDouble(temp);
+            temp ="";
+            display_text += "-";
+            czy_jest_juz_operator = true;
+            wyswietlacz.setText(display_text);
+
+
+        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == true) {
+            // lul niemozliwe
+
+        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == false) {
+            Toast.makeText(getActivity(), "Wprowadz pierwsza liczbe",
+                    Toast.LENGTH_LONG).show();
+        }
 
     }
 
     private void plus_wywolanie() {
+        if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == true) {
+            // np 3*3* ma zamienic w 9*
+            druga_liczba = Double.parseDouble(temp);
+            temp = "";
+            wynik = operuj(1);
+            czy_jest_juz_operator = true;
+            czy_jest_juz_pierwsza = true;
+            display_text = Double.toString(wynik) + "+";
+            pierwsza_liczba = wynik;
+            druga_liczba = 0;
+            wyswietlacz.setText(display_text);
+
+        } else if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == false) {
+            operacja = 1;
+            pierwsza_liczba = Double.parseDouble(temp);
+            temp ="";
+            display_text += "+";
+            czy_jest_juz_operator = true;
+            wyswietlacz.setText(display_text);
+
+
+        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == true) {
+            // lul niemozliwe
+
+        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == false) {
+            Toast.makeText(getActivity(), "Wprowadz pierwsza liczbe",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     private void is_equal_wywolanie() {
