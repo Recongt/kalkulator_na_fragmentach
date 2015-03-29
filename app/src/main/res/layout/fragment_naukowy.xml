@@ -1,7 +1,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.adam.kalkulator_na_fragmentach.Naukowy">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.adam.kalkulator_na_fragmentach.Naukowy"
+    android:background="@drawable/back">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -9,8 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:weightSum="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        >
 
         <TextView
             android:layout_width="fill_parent"
@@ -18,12 +19,17 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/napis"
             android:textSize="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
 
             android:id="@+id/textView"
             android:editable="false"
-            android:gravity="right" />
+            android:gravity="right"
+            android:textColor="#ffffffff" />
 
         <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
@@ -42,19 +48,23 @@
                     android:text="Bksp"
                     android:id="@+id/bksp"
                     android:layout_weight="0.166666"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sin(x)"
+                    android:text="Sinx"
                     android:id="@+id/sin"
                     android:layout_weight="0.166666"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -64,7 +74,9 @@
                     android:layout_weight="0.166666"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -74,7 +86,9 @@
                     android:layout_weight="0.166666"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -84,7 +98,9 @@
                     android:layout_weight="0.166666"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -94,7 +110,10 @@
                     android:layout_weight="0.166666"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp"
+                    android:layout_marginBottom="5dp" />
 
             </LinearLayout>
 
@@ -112,19 +131,23 @@
                     android:text="sqrt"
                     android:id="@+id/sqrt"
                     android:layout_weight="0.16"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cos(x)"
-                    android:id="@+id/button12"
+                    android:text="Cosx"
+                    android:id="@+id/cosx"
                     android:layout_weight="0.16"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -134,7 +157,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -144,7 +169,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -154,7 +181,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -164,7 +193,10 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -180,19 +212,23 @@
                     android:text="ln"
                     android:id="@+id/ln"
                     android:layout_weight="0.16"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="tan(x)"
+                    android:text="tanx"
                     android:id="@+id/tan"
                     android:layout_weight="0.16"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -202,7 +238,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -212,7 +250,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -222,7 +262,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -232,7 +274,10 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -248,19 +293,23 @@
                     android:text="x^y"
                     android:id="@+id/wykladnik"
                     android:layout_weight="0.16"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="x^2"
-                    android:id="@+id/kwadrat"
+                    android:id="@+id/square"
                     android:layout_weight="0.16"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:textSize="20dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -270,7 +319,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -280,7 +331,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -290,7 +343,9 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -300,7 +355,10 @@
                     android:layout_weight="0.16"
                     android:gravity="center"
                     android:textSize="20dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                    android:textColor="#ffffffff"
+                    android:background="#e938383a"
+                    android:layout_margin="3dp"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
         </LinearLayout>
 
