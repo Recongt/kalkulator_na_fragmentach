@@ -1,6 +1,5 @@
 package com.example.adam.kalkulator_na_fragmentach;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,29 +10,25 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import java.util.List;
 import java.util.Vector;
 
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener{
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
 
     private PagerAdapter mPagerAdapter;
 
-    public MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_main);
         this.initialisePaging();
-        mp = MediaPlayer.create(MainActivity.this, R.raw.click);
+
 
     }
-
 
 
     @Override
@@ -52,7 +47,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         this.mPagerAdapter = new myPageAdapter(super.getSupportFragmentManager(), fragments);
         ViewPager pager = (ViewPager)
-        super.findViewById(R.id.pager);
+                super.findViewById(R.id.pager);
         pager.setAdapter(this.mPagerAdapter);
     }
 
@@ -73,7 +68,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        mp.start();
+
     }
 
     class myPageAdapter extends FragmentPagerAdapter {
@@ -99,7 +94,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             return this.fragments.size();
         }
     }
-
 
 
 }

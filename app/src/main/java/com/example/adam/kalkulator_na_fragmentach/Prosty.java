@@ -1,7 +1,6 @@
 package com.example.adam.kalkulator_na_fragmentach;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -268,7 +267,7 @@ public class Prosty extends Fragment implements View.OnClickListener {
 
 
     private void minus_wywolanie() {
- dzialanie(2, "-");
+        dzialanie(2, "-");
     }
 
     private void plus_wywolanie() {
@@ -276,9 +275,9 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void is_equal_wywolanie() {
-        if(temp.isEmpty()){
-            toast_wypisz("Temp is empty");
-        }else {
+        if (temp.isEmpty()) {
+
+        } else {
             if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == true) {
                 druga_liczba = Double.parseDouble(temp);
                 wynik = operuj(operacja);
@@ -289,20 +288,16 @@ public class Prosty extends Fragment implements View.OnClickListener {
                 pierwsza_liczba = wynik;
 
 
-                toast_wypisz("equal 1");
-
-
             } else if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == false) {
                 wyswietlacz.setText(temp);
                 display_text = temp;
 
 
-                toast_wypisz("equal 2");
             } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == false) {
                 C_wywolanie();
-                toast_wypisz("equal 3");
+
             } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == true) {
-                toast_wypisz("equal 4");
+
             }
         }
     }
@@ -341,7 +336,7 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
 
-    public void dzialanie(int dzialanie, String znak){
+    public void dzialanie(int dzialanie, String znak) {
 
 
         if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == true) {

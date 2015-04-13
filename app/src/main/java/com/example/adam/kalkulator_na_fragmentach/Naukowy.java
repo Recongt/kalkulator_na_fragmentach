@@ -349,6 +349,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
         display_text += "1";
         wyswietlacz.setText(display_text);
 
+
     }
 
     private void zero_wywolanie() {
@@ -501,11 +502,12 @@ public class Naukowy extends Fragment implements View.OnClickListener {
         if (czy_jest_juz_pierwsza && czy_jest_juz_operator) {
             toast_wypisz("Nieprawidłowa operacja");
             C_wywolanie();
+            toast_wypisz("jednooperatorowe 1, 1");
 
         } else if (czy_jest_juz_pierwsza && !czy_jest_juz_operator) {
 
             if (kod_dzialania == 5) {
-//logarytm
+            //logarytm
                 wynik = Math.log(pierwsza_liczba);
                 wyswietlacz.setText(Double.toString(wynik));
             } else if (kod_dzialania == 6) {
@@ -524,8 +526,10 @@ public class Naukowy extends Fragment implements View.OnClickListener {
                 wynik = Math.tan(pierwsza_liczba);
                 wyswietlacz.setText(Double.toString(wynik));
             } else if (kod_dzialania == 11) {
+                //do potegi 2
                 wynik = Math.pow(pierwsza_liczba, 2);
                 wyswietlacz.setText(Double.toString(wynik));
+                toast_wypisz("jednooperatorowe 1, 0");
             }
 
         } else if (!czy_jest_juz_pierwsza && czy_jest_juz_operator) {
