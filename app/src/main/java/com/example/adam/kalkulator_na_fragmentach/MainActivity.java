@@ -34,6 +34,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         this.initialisePaging();
         return true;
@@ -41,7 +43,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     private void initialisePaging() {
         List<Fragment> fragments = new Vector<Fragment>();
-        //Dodaje fragmenty do listy, którą użyjemy w naszym adapterze. W tym przypadku dodałem 2 takie same (są jako osobne aktywności) by pokazać jak to działa w praktyce
+        //Dodaje fragmenty do listy, którą użyjemy w naszym adapterze.
         fragments.add(Fragment.instantiate(this, Prosty.class.getName()));
         fragments.add(Fragment.instantiate(this, Naukowy.class.getName()));
 
@@ -95,5 +97,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+    @Override
+    public void onBackPressed() {
 
+        int count = getFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            //additional code
+        } else {
+            getFragmentManager().popBackStack();
+        }
+
+    }
 }

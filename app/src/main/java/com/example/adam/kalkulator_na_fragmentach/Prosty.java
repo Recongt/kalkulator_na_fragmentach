@@ -126,6 +126,13 @@ public class Prosty extends Fragment implements View.OnClickListener {
     }
 
     private void nine_wywolanie() {
+
+        MathEval mathEval = new MathEval();
+        double result = mathEval.evaluate("sin(0.8)*2^8/1.22");
+        wyswietlacz.setText(Double.toString(result));
+
+
+            /*
         if (czy_jest_juz_pierwsza == false) {
             czy_jest_juz_pierwsza = true;
             temp = "";
@@ -134,7 +141,7 @@ public class Prosty extends Fragment implements View.OnClickListener {
 
         temp += "9";
         display_text += "9";
-        wyswietlacz.setText(display_text);
+        wyswietlacz.setText(display_text);*/
 
     }
 

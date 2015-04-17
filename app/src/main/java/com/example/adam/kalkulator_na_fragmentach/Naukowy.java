@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// ToDO dodac kropke, poprawic potege(ogolnie jednooperatorowe) dzialanie 2+2*2 - sprawdzic czego nie kasuje podmiana fragmentow w menu
+
+
+
 public class Naukowy extends Fragment implements View.OnClickListener {
     View mainView;
     int operacja = 0;
@@ -490,7 +494,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
                     Toast.LENGTH_LONG).show();
         }
     }
-
+//cos
     public void jednooperatorowe_dzialanie(int kod_dzialania) {
         if (temp.isEmpty()) {
             pierwsza_liczba = 0;
