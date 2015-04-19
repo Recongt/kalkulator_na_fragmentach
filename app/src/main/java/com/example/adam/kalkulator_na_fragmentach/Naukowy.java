@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-// ToDO dodac kropke, poprawic potege(ogolnie jednooperatorowe) dzialanie 2+2*2 - sprawdzic czego nie kasuje podmiana fragmentow w menu
+import java.util.IllegalFormatConversionException;
+import java.util.IllegalFormatException;
 
+// ToDO dodac kropke, poprawic potege(ogolnie jednooperatorowe) dzialanie 2+2*2 - sprawdzic czego nie kasuje podmiana fragmentow w menu
 
 
 public class Naukowy extends Fragment implements View.OnClickListener {
@@ -37,7 +39,8 @@ public class Naukowy extends Fragment implements View.OnClickListener {
     String temp = "0";
     double wynik = 0;
     String display_text = "";
-    private Button one, two, three, four, five, six, seven, eight, nine, zero, C, isequal, plus, minus, mnozenie, dzielenie, Bksp, ln, sqrt, wykladnik, sinx, cosx, tanx, square;
+    private Button one, two, three, four, five, six, seven, eight, nine, zero, C, isequal, plus, minus,
+            mnozenie, dzielenie, Bksp, ln, sqrt, wykladnik, sinx, cosx, tanx, square, Leftbracket, RightBracket, dot;
     private TextView wyswietlacz;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -77,6 +80,9 @@ public class Naukowy extends Fragment implements View.OnClickListener {
         tanx = (Button) mainView.findViewById(R.id.tan);
         square = (Button) mainView.findViewById(R.id.square);
         wyswietlacz = (TextView) mainView.findViewById(R.id.textView);
+        dot = (Button) mainView.findViewById(R.id.buttondot);
+        Leftbracket = (Button) mainView.findViewById(R.id.buttonLeftBracket);
+        RightBracket = (Button) mainView.findViewById(R.id.buttonRightBracket);
 
     }
 
@@ -105,6 +111,9 @@ public class Naukowy extends Fragment implements View.OnClickListener {
         cosx.setOnClickListener(this);
         tanx.setOnClickListener(this);
         square.setOnClickListener(this);
+        dot.setOnClickListener(this);
+        Leftbracket.setOnClickListener(this);
+        RightBracket.setOnClickListener(this);
 
 
     }
@@ -162,8 +171,32 @@ public class Naukowy extends Fragment implements View.OnClickListener {
             square_wywolanie();
         } else if (v == Bksp) {
             Bksp_wywolanie();
+        } else if (v == dot) {
+            dot_wywolanie();
+        } else if (v == Leftbracket) {
+            LeftBracket_wywolanie();
+        } else if (v == RightBracket) {
+            RightBracket_wywolanie();
         }
+
     }
+
+
+    private void RightBracket_wywolanie() {
+        display_text += ")";
+        wyswietlacz.setText(display_text);
+    }
+
+    private void LeftBracket_wywolanie() {
+        display_text += "(";
+        wyswietlacz.setText(display_text);
+    }
+
+    private void dot_wywolanie() {
+        display_text += ".";
+        wyswietlacz.setText(display_text);
+    }
+
 
     private void Bksp_wywolanie() {
         if (czy_jest_juz_pierwsza && czy_jest_juz_operator) {
@@ -209,222 +242,157 @@ public class Naukowy extends Fragment implements View.OnClickListener {
     }
 
     private void square_wywolanie() {
-        jednooperatorowe_dzialanie(11);
+        display_text += "sqrt(";
+        wyswietlacz.setText(display_text);
+
+        //jednooperatorowe_dzialanie(11);
     }
 
     private void tanx_wywolanie() {
-        jednooperatorowe_dzialanie(10);
+        display_text += "tan(";
+        wyswietlacz.setText(display_text);
+        // jednooperatorowe_dzialanie(10);
     }
 
     private void cosx_wywolanie() {
+        display_text += "cos(";
+        wyswietlacz.setText(display_text);
         jednooperatorowe_dzialanie(9);
     }
 
     private void sinx_wywolanie() {
-        jednooperatorowe_dzialanie(8);
+
+        display_text += "sin(";
+        wyswietlacz.setText(display_text);
+        //jednooperatorowe_dzialanie(8);
     }
 
 
     private void wykladnik_wywolanie() {
-        dzialanie(7, "^");
+        display_text += "^";
+        wyswietlacz.setText(display_text);
+        //dzialanie(7, "^");
     }
 
     private void sqrt_wywolanie() {
-        jednooperatorowe_dzialanie(6);
+        display_text += "sqrt(";
+        wyswietlacz.setText(display_text);
+        //jednooperatorowe_dzialanie(6);
 
     }
 
     private void ln_wywolanie() {
-        jednooperatorowe_dzialanie(5);
+
+        try {
+            double temp = Double.parseDouble(display_text);
+
+        }catch (IllegalFormatConversionException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    private void plus_wywolanie() {
+        display_text += "+";
+        wyswietlacz.setText(display_text);
+    }
+
+    private void minus_wywolanie() {
+        display_text += "-";
+        wyswietlacz.setText(display_text);
     }
 
     private void nine_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "9";
         display_text += "9";
         wyswietlacz.setText(display_text);
+
 
     }
 
     private void eight_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "8";
         display_text += "8";
         wyswietlacz.setText(display_text);
-
     }
 
     private void seven_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "7";
         display_text += "7";
         wyswietlacz.setText(display_text);
 
     }
 
     private void six_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "6";
         display_text += "6";
         wyswietlacz.setText(display_text);
 
     }
 
     private void five_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "5";
         display_text += "5";
         wyswietlacz.setText(display_text);
 
     }
 
     private void four_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
 
-        temp += "4";
         display_text += "4";
         wyswietlacz.setText(display_text);
-
     }
 
     private void three_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
 
-        temp += "3";
         display_text += "3";
         wyswietlacz.setText(display_text);
-
     }
 
     private void two_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "2";
         display_text += "2";
         wyswietlacz.setText(display_text);
 
     }
 
     private void one_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "1";
         display_text += "1";
         wyswietlacz.setText(display_text);
-
 
     }
 
     private void zero_wywolanie() {
-        if (czy_jest_juz_pierwsza == false) {
-            czy_jest_juz_pierwsza = true;
-            temp = "";
-            display_text = "";
-        }
-
-        temp += "0";
         display_text += "0";
         wyswietlacz.setText(display_text);
 
     }
 
     private void mnozenie_wywolanie() {
-        dzialanie(3, "x");
+        display_text += "*";
+        wyswietlacz.setText(display_text);
 
     }
 
     private void dzielenie_wywolanie() {
-        dzialanie(4, "/");
-
-    }
-
-
-    private void minus_wywolanie() {
-        dzialanie(2, "-");
-    }
-
-    private void plus_wywolanie() {
-        dzialanie(1, "+");
+        display_text += "/";
+        wyswietlacz.setText(display_text);
     }
 
     private void is_equal_wywolanie() {
-        if (temp.isEmpty()) {
-            //toast_wypisz("Temp is empty");
-        } else {
-            if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == true) {
-                druga_liczba = Double.parseDouble(temp);
-                wynik = operuj(operacja);
-                wyswietlacz.setText(Double.toString(wynik));
-                czy_jest_juz_operator = false;
-                display_text = Double.toString(wynik);
-                temp = Double.toString(wynik);
-                pierwsza_liczba = wynik;
+        MathEval mathEval = new MathEval();
 
+        try {
+            wynik = mathEval.evaluate(display_text);
+        } catch (IllegalFormatException e) {
+            toast_wypisz("Złe dane wejściowe");
+            e.printStackTrace();
 
-                //toast_wypisz("equal 1");
-
-
-            } else if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == false) {
-                wyswietlacz.setText(temp);
-                display_text = temp;
-
-
-                //toast_wypisz("equal 2");
-            } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == false) {
-                C_wywolanie();
-                //toast_wypisz("equal 3");
-            } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == true) {
-                //toast_wypisz("equal 4");
-            }
         }
+        display_text = Double.toString(wynik);
+        wyswietlacz.setText(display_text);
+
+        toast_wypisz("jestem w rowna sie");
     }
 
     private void C_wywolanie() {
-        czy_jest_juz_pierwsza = false;
-        czy_jest_juz_operator = false;
-        pierwsza_liczba = 0;
-        druga_liczba = 0;
+
         wynik = 0;
         wyswietlacz.setText("0");
         display_text = "";
@@ -432,23 +400,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
 
     }
 
-    private double operuj(int operacja) {
-        if (operacja == 1) {
-            wynik = pierwsza_liczba + druga_liczba;
-        } else if (operacja == 2) {
-            wynik = pierwsza_liczba - druga_liczba;
-        } else if (operacja == 3) {
-            wynik = pierwsza_liczba * druga_liczba;
-        } else if (operacja == 4) {
-            wynik = pierwsza_liczba / druga_liczba;
-        } else if (operacja == 0) {
-            Toast.makeText(getActivity(), "Błąd wewnętrzny",
-                    Toast.LENGTH_LONG).show();
-        } else if (operacja == 7) {
-            wynik = Math.pow(pierwsza_liczba, druga_liczba);
-        }
-        return wynik;
-    }
+
 
     public void toast_wypisz(String tekst) {
         Toast.makeText(getActivity(), tekst,
@@ -456,45 +408,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
     }
 
 
-    public void dzialanie(int dzialanie, String znak) {
-
-
-        if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == true) {
-            if (temp.isEmpty()) {
-
-            } else {
-                // np 3*3* ma zamienic w 9*
-                druga_liczba = Double.parseDouble(temp);
-                temp = "";
-                wynik = operuj(dzialanie);
-                czy_jest_juz_operator = true;
-                czy_jest_juz_pierwsza = true;
-                display_text = Double.toString(wynik) + znak;
-                pierwsza_liczba = wynik;
-                druga_liczba = 0;
-                wyswietlacz.setText(display_text);
-
-            }
-
-        } else if (czy_jest_juz_pierwsza == true && czy_jest_juz_operator == false) {
-            operacja = dzialanie;
-            pierwsza_liczba = Double.parseDouble(temp);
-            temp = "";
-            display_text += znak;
-            czy_jest_juz_operator = true;
-            wyswietlacz.setText(display_text);
-
-
-        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == true) {
-            // lul niemozliwe
-
-
-        } else if (czy_jest_juz_pierwsza == false && czy_jest_juz_operator == false) {
-            Toast.makeText(getActivity(), "Wprowadz pierwsza liczbe",
-                    Toast.LENGTH_LONG).show();
-        }
-    }
-//cos
+    //cos
     public void jednooperatorowe_dzialanie(int kod_dzialania) {
         if (temp.isEmpty()) {
             pierwsza_liczba = 0;
@@ -511,7 +425,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
         } else if (czy_jest_juz_pierwsza && !czy_jest_juz_operator) {
 
             if (kod_dzialania == 5) {
-            //logarytm
+                //logarytm
                 wynik = Math.log(pierwsza_liczba);
                 wyswietlacz.setText(Double.toString(wynik));
             } else if (kod_dzialania == 6) {
