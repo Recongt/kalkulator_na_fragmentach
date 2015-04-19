@@ -248,11 +248,24 @@ public class Prosty extends Fragment implements View.OnClickListener {
     private void is_equal_wywolanie() {
 
         MathEval mathEval = new MathEval();
-        wynik = mathEval.evaluate(display_text);
+
+        if(IloscOtwartych_nawiasow(display_text) !=0){
+            for(int i =0; i< IloscOtwartych_nawiasow(display_text);i++){
+                display_text += ")";
+            }
+        }
+        try {
+            wynik = mathEval.evaluate(display_text);
+        } catch (ArithmeticException e) {
+            toast_wypisz("Złe dane wejściowe");
+            C_wywolanie();
+
+
+        }
         display_text = Double.toString(wynik);
         wyswietlacz.setText(display_text);
 
-        toast_wypisz("jestem w rowna sie");
+
 
 
 
@@ -273,6 +286,21 @@ public class Prosty extends Fragment implements View.OnClickListener {
         Toast.makeText(getActivity(), tekst,
                 Toast.LENGTH_LONG).show();
     }
+
+    private int IloscOtwartych_nawiasow(String tekst){
+        int ile = 0;
+        int i = 0;
+        for(i =0; i< tekst.length(); i++){
+
+            if(tekst.substring(i, i+1).equals("(") ){
+                ile++;
+            }
+
+
+        }
+        return ile;
+    }
+
 
 
 }

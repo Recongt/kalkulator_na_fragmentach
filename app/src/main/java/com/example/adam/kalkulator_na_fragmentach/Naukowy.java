@@ -10,17 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.IllegalFormatConversionException;
-import java.util.IllegalFormatException;
-
 // ToDO dodac kropke, poprawic potege(ogolnie jednooperatorowe) dzialanie 2+2*2 - sprawdzic czego nie kasuje podmiana fragmentow w menu
 
 
 public class Naukowy extends Fragment implements View.OnClickListener {
     View mainView;
-    int operacja = 0;
-    boolean czy_jest_juz_pierwsza = false;
-    boolean czy_jest_juz_operator = false;
+
     /*
     Brak = 0
     Dodawanie = 1
@@ -34,8 +29,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
     tanx =9
     square = 10
     */
-    double pierwsza_liczba = 0;
-    double druga_liczba = 0;
+
     String temp = "0";
     double wynik = 0;
     String display_text = "";
@@ -51,6 +45,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
 
 
     }
+
 
 
     private void initialize() {
@@ -199,50 +194,22 @@ public class Naukowy extends Fragment implements View.OnClickListener {
 
 
     private void Bksp_wywolanie() {
-        if (czy_jest_juz_pierwsza && czy_jest_juz_operator) {
-            if (temp.isEmpty()) {
-                operacja = 0;
-                display_text = display_text.substring(0, (display_text.length() - 1));
-                temp = Double.toString(pierwsza_liczba);
-                czy_jest_juz_operator = false;
-                wyswietlacz.setText(display_text);
+        if(display_text.isEmpty()){
 
-
-                /*
-                operacja = 0;
-                display_text = display_text.substring(0, (display_text.length() - 1));
-                wyswietlacz.setText(display_text);
-                czy_jest_juz_operator = false;
-                temp = Double.toString(pierwsza_liczba);
-                czy_jest_juz_pierwsza = false;*/
-            } else {
-                temp = temp.substring(0, (temp.length() - 1));
-                display_text = display_text.substring(0, (display_text.length() - 1));
-                wyswietlacz.setText(display_text);
-
-            }
-
-        } else if (czy_jest_juz_pierwsza && !czy_jest_juz_operator) {
-            if (temp.isEmpty()) {
-                //nic nie rob
-            } else {
-                temp = temp.substring(0, (temp.length() - 1));
-                display_text = display_text.substring(0, (display_text.length() - 1));
-                wyswietlacz.setText(display_text);
-            }
-
-        } else if (!czy_jest_juz_pierwsza && czy_jest_juz_operator) {
-            //niedozowolone
-
-
-        } else if (!czy_jest_juz_pierwsza && !czy_jest_juz_operator) {
-            //nic nie rob
-
+        }
+        else if(display_text.length()==1)
+        {
+            C_wywolanie();
+        }
+        else
+        {
+            display_text = display_text.substring(0, (display_text.length() - 1));
+            wyswietlacz.setText(display_text);
         }
     }
 
     private void square_wywolanie() {
-        display_text += "sqrt(";
+        display_text += "^2";
         wyswietlacz.setText(display_text);
 
         //jednooperatorowe_dzialanie(11);
@@ -257,7 +224,7 @@ public class Naukowy extends Fragment implements View.OnClickListener {
     private void cosx_wywolanie() {
         display_text += "cos(";
         wyswietlacz.setText(display_text);
-        jednooperatorowe_dzialanie(9);
+
     }
 
     private void sinx_wywolanie() {
@@ -283,13 +250,8 @@ public class Naukowy extends Fragment implements View.OnClickListener {
 
     private void ln_wywolanie() {
 
-        try {
-            double temp = Double.parseDouble(display_text);
-
-        }catch (IllegalFormatConversionException e){
-            e.printStackTrace();
-        }
-
+        display_text += "log(";
+        wyswietlacz.setText(display_text);
 
     }
 
@@ -378,17 +340,23 @@ public class Naukowy extends Fragment implements View.OnClickListener {
     private void is_equal_wywolanie() {
         MathEval mathEval = new MathEval();
 
+        if(IloscOtwartych_nawiasow(display_text) !=0){
+            for(int i =0; i< IloscOtwartych_nawiasow(display_text);i++){
+                display_text += ")";
+            }
+        }
         try {
             wynik = mathEval.evaluate(display_text);
-        } catch (IllegalFormatException e) {
-            toast_wypisz("Złe dane wejściowe");
-            e.printStackTrace();
+        } catch (ArithmeticException e) {
+           toast_wypisz("Złe dane wejściowe");
+            C_wywolanie();
+
 
         }
         display_text = Double.toString(wynik);
         wyswietlacz.setText(display_text);
 
-        toast_wypisz("jestem w rowna sie");
+
     }
 
     private void C_wywolanie() {
@@ -408,81 +376,18 @@ public class Naukowy extends Fragment implements View.OnClickListener {
     }
 
 
-    //cos
-    public void jednooperatorowe_dzialanie(int kod_dzialania) {
-        if (temp.isEmpty()) {
-            pierwsza_liczba = 0;
-        } else {
-            pierwsza_liczba = Double.parseDouble(temp);
-            temp = "";
-        }
+    private int IloscOtwartych_nawiasow(String tekst){
+        int ile = 0;
+        int i = 0;
+        for(i =0; i< tekst.length(); i++){
 
-        if (czy_jest_juz_pierwsza && czy_jest_juz_operator) {
-            toast_wypisz("Nieprawidłowa operacja");
-            C_wywolanie();
-            toast_wypisz("jednooperatorowe 1, 1");
-
-        } else if (czy_jest_juz_pierwsza && !czy_jest_juz_operator) {
-
-            if (kod_dzialania == 5) {
-                //logarytm
-                wynik = Math.log(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 6) {
-                //pierwiastek
-                wynik = Math.sqrt(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 8) {
-                //sinx
-                wynik = Math.sin(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-
-            } else if (kod_dzialania == 9) {
-                wynik = Math.cos(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 10) {
-                wynik = Math.tan(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 11) {
-                //do potegi 2
-                wynik = Math.pow(pierwsza_liczba, 2);
-                wyswietlacz.setText(Double.toString(wynik));
-                toast_wypisz("jednooperatorowe 1, 0");
+            if(tekst.substring(i, i+1).equals("(") ){
+                ile++;
             }
 
-        } else if (!czy_jest_juz_pierwsza && czy_jest_juz_operator) {
-            toast_wypisz("operacja niedozwolona");
-            C_wywolanie();
 
-        } else if (!czy_jest_juz_pierwsza && !czy_jest_juz_operator) {
-            pierwsza_liczba = 0;
-            if (kod_dzialania == 5) {
-//logarytm
-                wynik = Math.log(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 6) {
-                //pierwiastek
-                wynik = Math.sqrt(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 8) {
-                //sinx
-                wynik = Math.sin(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-
-            } else if (kod_dzialania == 9) {
-                wynik = Math.cos(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 10) {
-                wynik = Math.tan(pierwsza_liczba);
-                wyswietlacz.setText(Double.toString(wynik));
-            } else if (kod_dzialania == 11) {
-                wynik = Math.pow(pierwsza_liczba, 2);
-                wyswietlacz.setText(Double.toString(wynik));
-            }
         }
-        czy_jest_juz_pierwsza = false;
-
-
+        return ile;
     }
 
 

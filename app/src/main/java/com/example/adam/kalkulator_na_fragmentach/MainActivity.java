@@ -8,8 +8,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Vector;
@@ -23,9 +25,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_main);
         this.initialisePaging();
+        ;
 
 
     }
@@ -36,8 +40,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         // Inflate the menu; this adds items to the action bar if it is present.
 
 
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        this.initialisePaging();
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -46,6 +50,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //Dodaje fragmenty do listy, którą użyjemy w naszym adapterze.
         fragments.add(Fragment.instantiate(this, Prosty.class.getName()));
         fragments.add(Fragment.instantiate(this, Naukowy.class.getName()));
+
 
         this.mPagerAdapter = new myPageAdapter(super.getSupportFragmentManager(), fragments);
         ViewPager pager = (ViewPager)
@@ -58,20 +63,23 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId())
+        {
+            case R.id.Exit:
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onClick(View v) {
 
     }
+
+
 
     class myPageAdapter extends FragmentPagerAdapter {
 
@@ -100,6 +108,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onBackPressed() {
 
+
+
+            Toast.makeText(this, "Back",
+                    Toast.LENGTH_LONG).show();
+
+
+/*
         int count = getFragmentManager().getBackStackEntryCount();
 
         if (count == 0) {
@@ -108,6 +123,21 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         } else {
             getFragmentManager().popBackStack();
         }
+*/
 
     }
+
+/*
+    @Override
+    public boolean onKeyDown(int keycode, KeyEvent e) {
+        switch(keycode) {
+            case KeyEvent.KEYCODE_MENU:
+
+                return true;
+        }
+
+        return super.onKeyDown(keycode, e);
+    }
+*/
+
 }

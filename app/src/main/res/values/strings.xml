@@ -9,4 +9,6 @@
     <string name="napis">0</string>
     <string name="app_name">Kalkulator</string>
     <string name="Exit">Exit</string>
+    <string name="action_location_found">Action location found</string>
+    <string name="action_search">Search</string>
 </resources>
